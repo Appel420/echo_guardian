@@ -32,12 +32,12 @@
     "completed_at": {"type": "string", "format": "date-time"},
     "policy_authorized": {"type": "boolean", "const": true},
     "readiness_passed": {"type": "boolean", "const": true},
-    "observation": {"type": "object"},
-    "baseline_summary": {"type": "object"},
-    "classification": {"type": "object"},
-    "confirmation": {"type": ["object", "null"]},
-    "escalation": {"type": ["object", "null"]},
-    "local_status": {"type": "object"},
+    "observation": {"$ref": "#/$defs/sensorObservation"},
+    "baseline_summary": {"$ref": "#/$defs/baselineSummary"},
+    "classification": {"$ref": "#/$defs/severityClassification"},
+    "confirmation": {"anyOf": [{"$ref": "#/$defs/confirmationState"}, {"type": "null"}]},
+    "escalation": {"anyOf": [{"$ref": "#/$defs/escalationEvent"}, {"type": "null"}]},
+    "local_status": {"$ref": "#/$defs/localStatus"},
     "audit_verified": {"type": "boolean"},
     "audit_errors": {"type": "array", "items": {"type": "string"}},
     "no_cloud_dependency": {"type": "boolean", "const": true},
@@ -45,5 +45,252 @@
     "hidden_behavior_present": {"type": "boolean", "const": false},
     "plain_language_summary": {"type": "string", "minLength": 1},
     "audit_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  },
+  "$defs": {
+    "sensorObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "observation_id", "created_at", "sensor_id", "signal_type", "space_id", "private_space", "quality", "permission_state", "availability_state", "raw_sensor_retained", "derived_metadata", "plain_language_summary", "audit_ref"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "0.2" },
+        "observation_id": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "sensor_id": { "type": "string" },
+        "signal_type": { "type": "string", "enum": ["motion", "device_presence", "sound_level", "environmental", "accelerometer", "gyroscope", "system"] },
+        "space_id": { "type": "string" },
+        "private_space": { "type": "boolean" },
+        "quality": { "type": "string", "enum": ["good", "noisy", "partial", "degraded", "unavailable"] },
+        "permission_state": { "type": "string", "enum": ["granted", "denied", "restricted", "not_determined", "unavailable"] },
+        "availability_state": { "type": "string", "enum": ["healthy", "degraded", "critical", "unavailable", "unknown"] },
+        "raw_sensor_retained": { "type": "boolean", "const": false },
+        "derived_metadata": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "confidence_scaled": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "motion_detected": { "type": "boolean" },
+            "presence_detected": { "type": "boolean" },
+            "fall_like_event": { "type": "boolean" },
+            "impact_detected": { "type": "boolean" },
+            "prolonged_inactivity": { "type": "boolean" },
+            "expected_activity_window": { "type": "boolean" },
+            "nonresponse_indicator": { "type": "boolean" },
+            "emergency_indicator": { "type": "boolean" },
+            "critical_safety_signal": { "type": "boolean" }
+          }
+        },
+        "plain_language_summary": { "type": "string", "minLength": 1 },
+        "audit_ref": { "type": "string" }
+      }
+    },
+    "baselineSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "baseline_id", "created_at", "updated_at", "status", "minimum_observations_for_established", "total_observations", "spaces", "confidence", "plain_language_summary", "sensitive_details_included", "degraded_reason", "replaced_from_baseline_id", "audit_refs"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "0.2" },
+        "baseline_id": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "updated_at": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["no_baseline", "learning", "established", "degraded", "reset", "replaced"] },
+        "minimum_observations_for_established": { "type": "integer", "minimum": 1 },
+        "total_observations": { "type": "integer", "minimum": 0 },
+        "spaces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["space_id", "private_space", "enabled", "observation_count", "observed_signal_types", "confidence", "last_observed_at", "summary"],
+            "properties": {
+              "space_id": { "type": "string" },
+              "private_space": { "type": "boolean" },
+              "enabled": { "type": "boolean" },
+              "observation_count": { "type": "integer", "minimum": 0 },
+              "observed_signal_types": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+              "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+              "last_observed_at": { "type": ["string", "null"], "format": "date-time" },
+              "summary": { "type": "string" }
+            }
+          }
+        },
+        "confidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["overall", "observation_volume", "space_coverage"],
+          "properties": {
+            "overall": { "type": "number", "minimum": 0, "maximum": 1 },
+            "observation_volume": { "type": "number", "minimum": 0, "maximum": 1 },
+            "space_coverage": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "plain_language_summary": { "type": "string" },
+        "sensitive_details_included": { "type": "boolean", "const": false },
+        "degraded_reason": { "type": ["string", "null"] },
+        "replaced_from_baseline_id": { "type": ["string", "null"] },
+        "audit_refs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "severityClassification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "classification_id", "created_at", "observation_id", "baseline_id", "baseline_status", "space_id", "signal_type", "is_anomaly", "severity", "primary_reason_code", "confidence", "baseline_confidence", "signal_confidence", "plain_language_explanation", "recommended_next_action", "raw_history_retained", "sensitive_details_included", "audit_refs", "evidence"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "0.2" },
+        "classification_id": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "observation_id": { "type": "string" },
+        "baseline_id": { "type": "string" },
+        "baseline_status": { "type": "string", "enum": ["no_baseline", "learning", "established", "degraded", "reset", "replaced"] },
+        "space_id": { "type": "string" },
+        "signal_type": { "type": "string" },
+        "is_anomaly": { "type": "boolean" },
+        "severity": { "type": "string", "enum": ["normal", "unusual", "concerning", "severe", "emergency"] },
+        "primary_reason_code": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "baseline_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "signal_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "plain_language_explanation": { "type": "string", "minLength": 1 },
+        "recommended_next_action": { "type": "string", "minLength": 1 },
+        "raw_history_retained": { "type": "boolean", "const": false },
+        "sensitive_details_included": { "type": "boolean", "const": false },
+        "audit_refs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true, "minItems": 1 },
+        "evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["baseline_status", "space_known_to_baseline", "observation_quality", "permission_state", "availability_state", "derived_metadata_keys"],
+          "properties": {
+            "baseline_status": { "type": "string" },
+            "space_known_to_baseline": { "type": "boolean" },
+            "observation_quality": { "type": "string" },
+            "permission_state": { "type": "string" },
+            "availability_state": { "type": "string" },
+            "derived_metadata_keys": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+          }
+        }
+      }
+    },
+    "confirmationAttempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attempt_number", "mode", "started_at", "state", "degraded", "audit_ref"],
+      "properties": {
+        "attempt_number": { "type": "integer", "minimum": 1 },
+        "mode": { "type": "string", "enum": ["voice", "text", "touch", "gesture", "passive"] },
+        "started_at": { "type": "string", "format": "date-time" },
+        "state": { "type": "string" },
+        "degraded": { "type": "boolean" },
+        "completed_at": { "type": ["string", "null"], "format": "date-time" },
+        "response_summary": { "type": ["string", "null"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "degradation_reason": { "type": ["string", "null"] },
+        "audit_ref": { "type": "string" }
+      }
+    },
+    "confirmationState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "confirmation_id", "trigger_event_id", "created_at", "current_state", "severity", "available_modes", "attempts", "timeout_seconds", "final_result", "voice_is_identity_proof", "audit_refs"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "0.2" },
+        "confirmation_id": { "type": "string" },
+        "trigger_event_id": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "updated_at": { "type": "string", "format": "date-time" },
+        "current_state": { "type": "string", "enum": ["idle", "prompt_pending", "prompt_delivered", "awaiting_response", "response_received", "response_validated", "response_rejected", "timed_out", "escalation_prepared", "escalated", "resolved", "cancelled"] },
+        "severity": { "type": "string", "enum": ["concerning", "severe", "emergency"] },
+        "available_modes": { "type": "array", "items": { "type": "string", "enum": ["voice", "text", "touch", "gesture", "passive"] }, "uniqueItems": true, "minItems": 1 },
+        "attempts": { "type": "array", "items": { "$ref": "#/$defs/confirmationAttempt" } },
+        "timeout_seconds": { "type": "integer", "minimum": 5 },
+        "final_result": { "type": "string", "enum": ["pending", "confirmed_safe", "confirmed_needs_help", "timeout", "cancelled", "escalated"] },
+        "voice_is_identity_proof": { "type": "boolean", "const": false },
+        "audit_refs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "escalationEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "escalation_id", "created_at", "severity", "reason", "recommended_action", "location_context", "minimum_disclosure_enabled", "sensitive_details_included", "contacts_targeted", "delivery_status", "delivery_attempts", "blocked_reason", "emergency_services_used", "audit_ref"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "0.2" },
+        "escalation_id": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "severity": { "type": "string", "enum": ["concerning", "severe", "emergency"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "recommended_action": { "type": "string", "minLength": 1 },
+        "location_context": { "type": "string", "minLength": 1 },
+        "minimum_disclosure_enabled": { "type": "boolean", "const": true },
+        "sensitive_details_included": { "type": "boolean", "const": false },
+        "contacts_targeted": { "type": "array", "items": { "type": "string" } },
+        "delivery_status": { "type": "string", "enum": ["blocked", "attempted", "delivered", "failed", "retrying", "cancelled"] },
+        "delivery_attempts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["attempt_number", "contact_id", "channel", "status", "provider_delivery_id", "error", "created_at", "audit_ref"],
+            "properties": {
+              "attempt_number": { "type": "integer", "minimum": 1 },
+              "contact_id": { "type": "string" },
+              "channel": { "type": "string", "enum": ["sms", "phone_call", "email", "push"] },
+              "status": { "type": "string", "enum": ["blocked", "attempted", "delivered", "failed", "retrying", "cancelled"] },
+              "provider_delivery_id": { "type": ["string", "null"] },
+              "error": { "type": ["string", "null"] },
+              "created_at": { "type": "string", "format": "date-time" },
+              "audit_ref": { "type": "string" }
+            }
+          }
+        },
+        "blocked_reason": { "type": ["string", "null"] },
+        "emergency_services_used": { "type": "boolean", "const": false },
+        "audit_ref": { "type": "string" }
+      }
+    },
+    "spaceStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["space_id", "display_name", "enabled", "private_space", "signal_types", "authority"],
+      "properties": {
+        "space_id": { "type": "string" },
+        "display_name": { "type": "string" },
+        "enabled": { "type": "boolean" },
+        "private_space": { "type": "boolean" },
+        "signal_types": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "authority": { "type": "string", "enum": ["user", "caregiver", "mdm", "system"] }
+      }
+    },
+    "interfaceDegradation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["component", "health_state", "plain_language", "user_action"],
+      "properties": {
+        "component": { "type": "string" },
+        "health_state": { "type": "string", "enum": ["healthy", "degraded", "critical", "unavailable", "unknown"] },
+        "plain_language": { "type": "string" },
+        "user_action": { "type": ["string", "null"] }
+      }
+    },
+    "localStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "status_id", "created_at", "monitoring_enabled", "monitoring_explanation", "active_spaces_explanation", "signal_types_explanation", "authority_explanation", "degraded_state_explanation", "what_are_you_doing_response", "alert_preview_text", "spaces", "degradations", "audit_ref", "plain_language_level", "hidden_behavior_present"],
+      "properties": {
+        "schema_version": { "type": "string", "const": "0.2" },
+        "status_id": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "monitoring_enabled": { "type": "boolean" },
+        "monitoring_explanation": { "type": "string", "minLength": 1 },
+        "active_spaces_explanation": { "type": "string", "minLength": 1 },
+        "signal_types_explanation": { "type": "string", "minLength": 1 },
+        "authority_explanation": { "type": "string", "minLength": 1 },
+        "degraded_state_explanation": { "type": "string", "minLength": 1 },
+        "what_are_you_doing_response": { "type": "string", "minLength": 1 },
+        "alert_preview_text": { "type": "string", "minLength": 1 },
+        "plain_language_level": { "type": "string", "enum": ["child_elderly_clear"] },
+        "hidden_behavior_present": { "type": "boolean", "const": false },
+        "spaces": { "type": "array", "items": { "$ref": "#/$defs/spaceStatus" } },
+        "degradations": { "type": "array", "items": { "$ref": "#/$defs/interfaceDegradation" } },
+        "audit_ref": { "type": "string" }
+      }
+    }
   }
 }
