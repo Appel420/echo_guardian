@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/retention-policy.schema.json",
+  "title": "Echo Guardian Retention Policy v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "retention_policy_id", "created_at", "raw_sensor_fragments", "event_buffer_hours", "audit_log_days", "export_staging_delete_after_export", "audit_ref"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "retention_policy_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "raw_sensor_fragments": { "type": "string", "enum": ["not_retained"] },
+    "event_buffer_hours": { "type": "integer", "minimum": 1, "maximum": 72 },
+    "audit_log_days": { "type": ["integer", "string"] },
+    "export_staging_delete_after_export": { "type": "boolean", "const": true },
+    "audit_ref": { "type": "string" }
+  }
+}

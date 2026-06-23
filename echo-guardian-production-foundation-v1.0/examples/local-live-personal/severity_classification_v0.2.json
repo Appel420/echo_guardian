@@ -1,0 +1,34 @@
+{
+  "audit_refs": [
+    "b5048653-5870-4372-b8eb-1ded63a27d7e"
+  ],
+  "baseline_confidence": 0.396,
+  "baseline_id": "61e9c69d-9c85-4680-ae31-9192ccf218e2",
+  "baseline_status": "learning",
+  "classification_id": "0369d343-775d-418a-b038-3c4ff0e83be0",
+  "confidence": 0.6,
+  "created_at": "2026-06-23T08:41:14Z",
+  "evidence": {
+    "availability_state": "healthy",
+    "baseline_status": "learning",
+    "derived_metadata_keys": [
+      "confidence_scaled",
+      "motion_detected"
+    ],
+    "observation_quality": "good",
+    "permission_state": "granted",
+    "space_known_to_baseline": true
+  },
+  "is_anomaly": false,
+  "observation_id": "892fded0-5332-4fa3-a912-65edb338e029",
+  "plain_language_explanation": "Echo Guardian received a normal minimized safety signal while it is still learning this pattern.",
+  "primary_reason_code": "matches_learning_baseline",
+  "raw_history_retained": false,
+  "recommended_next_action": "Keep learning locally.",
+  "schema_version": "0.2",
+  "sensitive_details_included": false,
+  "severity": "normal",
+  "signal_confidence": 0.91,
+  "signal_type": "motion",
+  "space_id": "living_room"
+}

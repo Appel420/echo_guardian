@@ -1,0 +1,87 @@
+{
+  "audit_ref": "d96bccce-bab9-4d8f-8813-081003013ad0",
+  "blocking_reasons": [],
+  "components": [
+    {
+      "checked_at": "2026-06-23T08:56:28Z",
+      "component_id": "motion-1",
+      "component_type": "sensor",
+      "details": {
+        "availability_state": "healthy",
+        "permission_state": "granted",
+        "private_space_capable": false,
+        "signal_type": "motion"
+      },
+      "display_name": "living room movement",
+      "plain_language": "living room movement signal is healthy and permission is granted.",
+      "required_for_active_monitoring": true,
+      "state": "healthy",
+      "user_action": null
+    },
+    {
+      "checked_at": "2026-06-23T08:56:28Z",
+      "component_id": "local_storage",
+      "component_type": "storage",
+      "details": {
+        "audit_path": "examples/local-live-personal/health_store_v0.2/audit",
+        "export_path": "examples/local-live-personal/health_store_v0.2/export",
+        "missing_paths": [],
+        "operational_path": "examples/local-live-personal/health_store_v0.2/operational"
+      },
+      "display_name": "local storage",
+      "plain_language": "Local storage is separated and available.",
+      "required_for_active_monitoring": true,
+      "state": "healthy",
+      "user_action": null
+    },
+    {
+      "checked_at": "2026-06-23T08:56:28Z",
+      "component_id": "audit_log",
+      "component_type": "audit",
+      "details": {
+        "entry_count": 0
+      },
+      "display_name": "audit log",
+      "plain_language": "The safety history is protected and verifies correctly.",
+      "required_for_active_monitoring": true,
+      "state": "healthy",
+      "user_action": null
+    },
+    {
+      "checked_at": "2026-06-23T08:56:28Z",
+      "component_id": "production-local-v0.2",
+      "component_type": "policy",
+      "details": {
+        "policy_id": "production-local-v0.2",
+        "policy_version": "0.2",
+        "private_space_monitoring_enabled": false,
+        "silent_telemetry_enabled": false
+      },
+      "display_name": "local policy",
+      "plain_language": "The local safety policy is valid and keeps private spaces blocked by default.",
+      "required_for_active_monitoring": true,
+      "state": "healthy",
+      "user_action": null
+    },
+    {
+      "checked_at": "2026-06-23T08:56:28Z",
+      "component_id": "live_contacts",
+      "component_type": "contact_escalation",
+      "details": {
+        "contact_count": 0,
+        "live_contact_ready": false
+      },
+      "display_name": "safety contacts",
+      "plain_language": "Live safety contact alerts are not enabled yet. Local monitoring can still work, but outside help will not be contacted.",
+      "required_for_active_monitoring": false,
+      "state": "degraded",
+      "user_action": "Add authorized contacts and complete a test alert before relying on live alerts."
+    }
+  ],
+  "created_at": "2026-06-23T08:56:28Z",
+  "health_id": "1201c340-1b4c-44d9-9e8b-252927230c31",
+  "overall_state": "degraded",
+  "plain_language_summary": "Echo Guardian can run local monitoring, but some non-blocking parts need attention.",
+  "ready_for_active_monitoring": true,
+  "schema_version": "0.2"
+}

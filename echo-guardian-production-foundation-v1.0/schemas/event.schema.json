@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/event.schema.json",
+  "title": "Echo Guardian Event v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "event_id", "sequence_number", "timestamp", "event_type", "severity", "source_module", "deployment_mode", "authority_context", "space_id", "signal_types", "context_summary", "requires_audit"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "event_id": { "type": "string" },
+    "sequence_number": { "type": "integer", "minimum": 1 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "event_type": { "type": "string" },
+    "severity": { "type": "string", "enum": ["normal", "unusual", "concerning", "severe", "emergency"] },
+    "source_module": { "type": "string" },
+    "deployment_mode": { "type": "string" },
+    "authority_context": { "type": "string" },
+    "space_id": { "type": "string" },
+    "private_space": { "type": "boolean" },
+    "signal_types": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "context_summary": { "type": "string", "minLength": 1 },
+    "requires_audit": { "type": "boolean" },
+    "sensitive_payload_ref": { "type": ["string", "null"] },
+    "payload_hash": { "type": ["string", "null"] }
+  }
+}

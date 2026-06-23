@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.8",
+  "screen_name": "Local Status",
+  "spoken_or_visible_text": [
+    "What are you doing?",
+    "Echo Guardian is checking the living room for safety signals.",
+    "Emergency services are not contacted by default."
+  ],
+  "what_are_you_doing_available": true,
+  "emergency_claims_absent": true
+}

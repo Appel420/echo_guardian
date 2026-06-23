@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.7",
+  "release": "v0.7 Device Execution + Signed Native Export",
+  "decision": "approved_for_device_execution_foundation_with_limitations",
+  "approved_for": [
+    "physical-device execution checklist development",
+    "persisted signing proof contract testing",
+    "signed native export manifest validation",
+    "native audit checkpoint signing validation",
+    "provider sandbox receipt verification",
+    "native accessibility UI test scaffolding",
+    "CI artifact attestation baseline"
+  ],
+  "not_approved_for": [
+    "HIPAA compliance claims",
+    "GDPR/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/MDM control"
+  ],
+  "production_laws": {
+    "no_cloud_dependency": "pass",
+    "no_hidden_behavior": "pass",
+    "no_private_space_monitoring_by_default": "pass",
+    "no_raw_sensor_retention_by_default": "pass",
+    "no_automatic_export": "pass",
+    "no_emergency_services_by_default": "pass",
+    "auditable_native_state_transitions": "pass"
+  },
+  "release_blockers_remaining": [
+    "real physical iOS device evidence not included in repository",
+    "real physical Android device evidence not included in repository",
+    "live provider certification not complete",
+    "external legal/compliance review not complete",
+    "clinical validation not complete"
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/policy.schema.json",
+  "title": "Echo Guardian Production Policy v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "deployment_mode",
+    "monitoring_enabled",
+    "private_space_monitoring_enabled",
+    "real_sensor_ingestion_enabled",
+    "local_baseline_learning_enabled",
+    "local_audit_logging_enabled",
+    "real_contact_notification_enabled",
+    "requires_contact_test_before_live_alerts",
+    "emergency_services_enabled",
+    "cloud_dependency_for_core_loop",
+    "silent_telemetry_enabled",
+    "diagnostic_upload_enabled",
+    "raw_sensor_retention",
+    "export_requires_explicit_confirmation",
+    "policy_id",
+    "policy_version",
+    "bathroom_monitoring_enabled",
+    "bedroom_monitoring_enabled",
+    "authorized_contacts_configured",
+    "successful_test_alert_completed"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.2"
+    },
+    "deployment_mode": {
+      "type": "string",
+      "enum": [
+        "personal",
+        "family_caregiver",
+        "assisted_living_clinical",
+        "mdm_institutional",
+        "emergency_only"
+      ]
+    },
+    "monitoring_enabled": {
+      "type": "boolean"
+    },
+    "private_space_monitoring_enabled": {
+      "type": "boolean",
+      "const": false
+    },
+    "bathroom_monitoring_enabled": {
+      "type": "boolean",
+      "const": false
+    },
+    "bedroom_monitoring_enabled": {
+      "type": "boolean",
+      "const": false
+    },
+    "real_sensor_ingestion_enabled": {
+      "type": "boolean",
+      "const": true
+    },
+    "local_baseline_learning_enabled": {
+      "type": "boolean",
+      "const": true
+    },
+    "local_audit_logging_enabled": {
+      "type": "boolean",
+      "const": true
+    },
+    "real_contact_notification_enabled": {
+      "type": "boolean"
+    },
+    "requires_contact_test_before_live_alerts": {
+      "type": "boolean",
+      "const": true
+    },
+    "authorized_contacts_configured": {
+      "type": "boolean"
+    },
+    "successful_test_alert_completed": {
+      "type": "boolean"
+    },
+    "emergency_services_enabled": {
+      "type": "boolean",
+      "const": false
+    },
+    "cloud_dependency_for_core_loop": {
+      "type": "boolean",
+      "const": false
+    },
+    "silent_telemetry_enabled": {
+      "type": "boolean",
+      "const": false
+    },
+    "diagnostic_upload_enabled": {
+      "type": "boolean",
+      "const": false
+    },
+    "raw_sensor_retention": {
+      "type": "string",
+      "enum": [
+        "not_retained"
+      ]
+    },
+    "export_requires_explicit_confirmation": {
+      "type": "boolean",
+      "const": true
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_version": {
+      "type": "string"
+    }
+  }
+}

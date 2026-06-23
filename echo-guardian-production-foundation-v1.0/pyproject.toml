@@ -1,0 +1,13 @@
+[project]
+name = "echo-guardian-core"
+version = "0.8.0"
+description = "Echo Guardian production-live local-first safety monitoring foundation with physical device evidence and release attestation foundation"
+requires-python = ">=3.11"
+dependencies = [
+  "blake3>=1.0.0",
+  "jsonschema>=4.0.0",
+  "cryptography>=42.0.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

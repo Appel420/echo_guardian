@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.2",
+  "project": "Echo Guardian",
+  "release": "production-foundation-v0.2",
+  "date": "2026-06-23",
+  "release_status": "PASS_WITH_LIMITATIONS",
+  "status_plain_language": "Echo Guardian v0.2 has passed the production-foundation release gate for local-first safety monitoring architecture. It is not certified for medical, HIPAA, GDPR, emergency-response, or clinical use.",
+  "test_summary": {
+    "command": "PYTHONPATH=src python -m pytest -q",
+    "result": "passed",
+    "tests_passed": 77,
+    "tests_failed": 0
+  },
+  "production_laws": [
+    {"id": "no_hidden_behavior", "description": "Nothing hidden; every monitoring, policy, export, and escalation state must be visible and explainable.", "status": "pass", "evidence": ["tests/unit/test_status.py", "tests/unit/test_policy.py"]},
+    {"id": "no_cloud_dependency", "description": "The core safety loop must not depend on cloud services.", "status": "pass", "evidence": ["tests/unit/test_integration.py", "schemas/policy.schema.json"]},
+    {"id": "no_private_space_by_default", "description": "Bathroom and bedroom monitoring are blocked by default in v0.2.", "status": "pass", "evidence": ["tests/unit/test_policy.py", "tests/unit/test_sensor.py", "tests/unit/test_integration.py"]},
+    {"id": "no_raw_sensor_retention", "description": "Raw sensor samples must not cross the ingestion boundary or be retained by default.", "status": "pass", "evidence": ["tests/unit/test_sensor.py", "tests/unit/test_baseline.py"]},
+    {"id": "audit_every_meaningful_state_change", "description": "Meaningful state changes are written to the append-only audit log.", "status": "pass", "evidence": ["tests/cryptographic/test_audit.py", "tests/unit/test_integration.py"]},
+    {"id": "explicit_export_only", "description": "Exports require explicit user request and automatic export is denied.", "status": "pass", "evidence": ["tests/unit/test_storage_export.py"]},
+    {"id": "guarded_live_escalation", "description": "Live escalation requires authorized contacts, test-alert readiness, and minimal disclosure.", "status": "pass", "evidence": ["tests/unit/test_escalation.py", "tests/unit/test_policy.py"]},
+    {"id": "readiness_gate_before_monitoring", "description": "Active monitoring is blocked unless required health and policy gates pass.", "status": "pass", "evidence": ["tests/unit/test_health.py", "tests/unit/test_integration.py"]},
+    {"id": "tamper_evident_audit", "description": "Audit tampering, reordering, and truncation are detectable through verification and checkpoint comparison.", "status": "pass", "evidence": ["tests/cryptographic/test_audit.py"]}
+  ],
+  "known_limitations": [
+    {"id": "not_certified", "severity": "high", "summary": "Not certified as HIPAA compliant, GDPR compliant, medical-device compliant, clinical, or emergency-response system."},
+    {"id": "platform_integration_pending", "severity": "high", "summary": "Real mobile OS sensor adapters and Secure Enclave bindings remain implementation targets beyond the Python foundation package."},
+    {"id": "no_private_space_monitoring", "severity": "medium", "summary": "Bathroom and bedroom monitoring are intentionally blocked in v0.2."},
+    {"id": "no_emergency_services_default", "severity": "medium", "summary": "Emergency-services routing is disabled by default and not implemented as a production path in v0.2."},
+    {"id": "pqc_library_binding_pending", "severity": "medium", "summary": "ML-KEM and ML-DSA-87 are specified in the cryptographic profile but require vetted production library integration."},
+    {"id": "clinical_validation_pending", "severity": "high", "summary": "No clinical validation or safety efficacy claim has been established."}
+  ],
+  "open_risks": [
+    {"id": "false_positive_rate", "severity": "high", "owner": "safety_engineering", "mitigation": "Collect real-world validation data under consent and tune conservative thresholds."},
+    {"id": "false_negative_rate", "severity": "high", "owner": "safety_engineering", "mitigation": "Add sensor diversity, failure injection, missed-event review, and incident analysis."},
+    {"id": "mobile_background_execution", "severity": "high", "owner": "platform_engineering", "mitigation": "Design native iOS/Android service models compatible with OS background restrictions."},
+    {"id": "secure_key_lifecycle", "severity": "high", "owner": "security_engineering", "mitigation": "Implement platform-backed keys, rotation, recovery boundaries, and migration audit events."},
+    {"id": "global_compliance_matrix", "severity": "high", "owner": "compliance", "mitigation": "Map jurisdiction requirements and limit claims to reviewed evidence."},
+    {"id": "accessibility_real_user_validation", "severity": "high", "owner": "product_accessibility", "mitigation": "Perform usability testing with elderly users and users with vision, speech, hearing, motor, and cognitive limitations."}
+  ],
+  "next_release_requirements_v0_3": [
+    "Native platform sensor adapter implementation plan for iOS and Android.",
+    "Secure Enclave / Keychain / Keystore integration design and proof path.",
+    "Real provider adapter boundary for live contact delivery with test-alert verification.",
+    "Expanded security hardening suite with explicit tests/security directory.",
+    "Privacy rights workflow implementation and evidence artifacts.",
+    "Accessibility screen-flow prototype and user-facing copy review.",
+    "SBOM and dependency scan workflow.",
+    "CI pipeline with test, lint, schema validation, audit verification, and artifact hashing."
+  ],
+  "release_gate_decision": {
+    "decision": "approved_for_v0.2_production_foundation_baseline",
+    "not_approved_for": ["medical certification", "clinical deployment", "HIPAA compliance claim", "GDPR compliance claim", "emergency services dispatch", "enterprise institutional rollout"],
+    "approved_for": ["local-first production foundation development", "engineering integration baseline", "audit/policy/sensor/baseline/status/storage integration work", "controlled internal validation"]
+  }
+}

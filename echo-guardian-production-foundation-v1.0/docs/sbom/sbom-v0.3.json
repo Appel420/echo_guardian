@@ -1,0 +1,27 @@
+{
+  "bomFormat": "CycloneDX-compatible-minimal",
+  "components": [
+    {
+      "name": "blake3>=1.0.0",
+      "type": "library",
+      "version": null
+    },
+    {
+      "name": "jsonschema>=4.0.0",
+      "type": "library",
+      "version": null
+    },
+    {
+      "name": "cryptography>=42.0.0",
+      "type": "library",
+      "version": null
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "echo-guardian-production-foundation",
+      "version": "0.3"
+    }
+  },
+  "specVersion": "1.5-minimal"
+}

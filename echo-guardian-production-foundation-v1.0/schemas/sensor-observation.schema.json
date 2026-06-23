@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/sensor-observation.schema.json",
+  "title": "Echo Guardian Sensor Observation v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "observation_id",
+    "created_at",
+    "sensor_id",
+    "signal_type",
+    "space_id",
+    "private_space",
+    "quality",
+    "permission_state",
+    "availability_state",
+    "raw_sensor_retained",
+    "derived_metadata",
+    "plain_language_summary",
+    "audit_ref"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "observation_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "sensor_id": { "type": "string" },
+    "signal_type": {
+      "type": "string",
+      "enum": ["motion", "device_presence", "sound_level", "environmental", "accelerometer", "gyroscope", "system"]
+    },
+    "space_id": { "type": "string" },
+    "private_space": { "type": "boolean" },
+    "quality": { "type": "string", "enum": ["good", "noisy", "partial", "degraded", "unavailable"] },
+    "permission_state": { "type": "string", "enum": ["granted", "denied", "restricted", "not_determined", "unavailable"] },
+    "availability_state": { "type": "string", "enum": ["healthy", "degraded", "critical", "unavailable", "unknown"] },
+    "raw_sensor_retained": { "type": "boolean", "const": false },
+    "derived_metadata": {
+      "type": "object",
+      "description": "Minimized metadata only. Raw samples, audio buffers, transcripts, frames, and packet captures are forbidden by policy."
+    },
+    "plain_language_summary": { "type": "string", "minLength": 1 },
+    "audit_ref": { "type": "string" }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "blocked_claims": [
+    "hipaa compliance claims",
+    "gdpr/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/mdm control"
+  ],
+  "blocked_terms_found": [],
+  "checked_text_hash": "b24b9b415072add004dd98a9c4ed569c8ccf3987bf216cda9dd17ac2a494b2f4",
+  "checklist_id": "236b598c-4d42-4775-bf53-7133647ede89",
+  "created_at": "2026-06-23T09:53:57Z",
+  "passed": true,
+  "plain_language_summary": "Echo Guardian claim-blocking review passed.",
+  "schema_version": "0.9"
+}

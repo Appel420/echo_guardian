@@ -1,0 +1,61 @@
+name: Echo Guardian CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e . pytest
+      - run: pytest tests/unit tests/cryptographic
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e . pytest
+      - run: pytest tests/security
+
+  ios-native:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cd native/ios/EchoGuardianKit && swift test
+
+  android-native:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+      - run: cd native/android && ./gradlew :echo-guardian-core:testDebugUnitTest
+
+  sbom-attestation-and-release-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: pip install -e .
+      - run: python tools/generate_sbom.py --output docs/sbom/sbom-v0.9.json
+      - run: python tools/check_v06_release_artifacts.py
+      - run: python tools/check_v07_release_artifacts.py
+      - run: python tools/check_v08_release_artifacts.py
+      - run: python tools/check_v09_release_artifacts.py
+      - run: python tools/check_v10_release_artifacts.py

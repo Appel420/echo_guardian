@@ -1,0 +1,30 @@
+{
+  "audit_ref": "14770294-3201-4db7-baeb-fba3092c7caf",
+  "blocked_reason": null,
+  "contacts_targeted": [
+    "contact-primary-001"
+  ],
+  "created_at": "2026-06-23T08:30:32Z",
+  "delivery_attempts": [
+    {
+      "attempt_number": 1,
+      "audit_ref": "447dd679-b8d7-498e-a46d-2f57a801ff24",
+      "channel": "sms",
+      "contact_id": "contact-primary-001",
+      "created_at": "2026-06-23T08:30:32Z",
+      "error": null,
+      "provider_delivery_id": "local-outbox-fa15b672-e93c-42d2-976c-1f674686b409",
+      "status": "delivered"
+    }
+  ],
+  "delivery_status": "delivered",
+  "emergency_services_used": false,
+  "escalation_id": "159a93df-58ee-42ed-aae5-5ad0b378ff82",
+  "location_context": "Home - living room",
+  "minimum_disclosure_enabled": true,
+  "reason": "No response after safety confirmation prompt.",
+  "recommended_action": "Please check on the user.",
+  "schema_version": "0.2",
+  "sensitive_details_included": false,
+  "severity": "severe"
+}

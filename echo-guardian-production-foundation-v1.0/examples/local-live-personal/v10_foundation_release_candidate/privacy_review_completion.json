@@ -1,0 +1,24 @@
+{
+  "blocked_claims": [
+    "HIPAA compliance claims",
+    "GDPR/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/MDM control"
+  ],
+  "completed_at": null,
+  "completed_by": null,
+  "created_at": "2026-06-23T09:59:23Z",
+  "findings_count": 0,
+  "package_path": "docs/review/privacy-review-package-v1.0.md",
+  "passed": false,
+  "plain_language_summary": "privacy review is incomplete or has unresolved blockers.",
+  "release_blocking": true,
+  "review_id": "363e176a-58ea-4209-803b-cf2230c3dfb9",
+  "review_type": "privacy",
+  "schema_version": "1.0-rc",
+  "unresolved_blockers": [
+    "privacy reviewer completion missing"
+  ]
+}

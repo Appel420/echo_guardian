@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-06-23T09:53:57Z",
+  "dependencies": [
+    {
+      "license_status": "review_required",
+      "name": "blake3",
+      "source": "requirements.txt",
+      "specifier": "blake3>=1.0.0"
+    },
+    {
+      "license_status": "review_required",
+      "name": "jsonschema",
+      "source": "requirements.txt",
+      "specifier": "jsonschema>=4.0.0"
+    },
+    {
+      "license_status": "review_required",
+      "name": "cryptography",
+      "source": "requirements.txt",
+      "specifier": "cryptography>=42.0.0"
+    }
+  ],
+  "dependency_count": 3,
+  "plain_language_summary": "Echo Guardian generated a dependency license report. Review-required entries must be cleared before v1.0 foundation readiness.",
+  "release_blocking_unknowns": true,
+  "report_id": "711f915d-da3d-46f6-9cfc-6481da58b626",
+  "schema_version": "0.9",
+  "unknown_license_count": 3
+}

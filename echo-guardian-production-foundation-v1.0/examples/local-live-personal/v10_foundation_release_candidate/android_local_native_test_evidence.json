@@ -1,0 +1,20 @@
+{
+  "accessibility_evidence_captured": false,
+  "app_build_id": null,
+  "audit_checkpoint_verified": false,
+  "created_at": "2026-06-23T09:59:23Z",
+  "device_model": null,
+  "evidence_id": "78d55ac1-1e9b-473f-94f3-f3c06fb68b2e",
+  "evidence_state": "missing",
+  "execution_log_hash": null,
+  "os_version": null,
+  "physical_device_required": true,
+  "plain_language_summary": "android physical-device evidence is incomplete and blocks v1.0 foundation readiness.",
+  "platform": "android",
+  "private_space_blocking_verified": false,
+  "raw_data_blocking_verified": false,
+  "release_blocking": true,
+  "schema_version": "1.0-rc",
+  "simulator_or_emulator_allowed": false,
+  "tests_passed": false
+}

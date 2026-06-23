@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/confirmation-state.schema.json",
+  "title": "Echo Guardian Confirmation State v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "confirmation_id", "trigger_event_id", "created_at", "current_state", "severity", "available_modes", "attempts", "timeout_seconds", "final_result", "voice_is_identity_proof", "audit_refs"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "confirmation_id": { "type": "string" },
+    "trigger_event_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "current_state": { "type": "string", "enum": ["idle", "prompt_pending", "prompt_delivered", "awaiting_response", "response_received", "response_validated", "response_rejected", "timed_out", "escalation_prepared", "escalated", "resolved", "cancelled"] },
+    "severity": { "type": "string", "enum": ["concerning", "severe", "emergency"] },
+    "available_modes": { "type": "array", "items": { "type": "string", "enum": ["voice", "text", "touch", "gesture", "passive"] }, "uniqueItems": true, "minItems": 1 },
+    "attempts": { "type": "array", "items": { "type": "object" } },
+    "timeout_seconds": { "type": "integer", "minimum": 5 },
+    "final_result": { "type": "string", "enum": ["pending", "confirmed_safe", "confirmed_needs_help", "timeout", "cancelled", "escalated"] },
+    "voice_is_identity_proof": { "type": "boolean", "const": false },
+    "audit_refs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  }
+}

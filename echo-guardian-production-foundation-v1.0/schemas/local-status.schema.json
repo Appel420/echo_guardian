@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/local-status.schema.json",
+  "title": "Echo Guardian Local Status Report v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status_id",
+    "created_at",
+    "monitoring_enabled",
+    "monitoring_explanation",
+    "active_spaces_explanation",
+    "signal_types_explanation",
+    "authority_explanation",
+    "degraded_state_explanation",
+    "what_are_you_doing_response",
+    "alert_preview_text",
+    "spaces",
+    "degradations",
+    "audit_ref",
+    "plain_language_level",
+    "hidden_behavior_present"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.2"},
+    "status_id": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "monitoring_enabled": {"type": "boolean"},
+    "monitoring_explanation": {"type": "string", "minLength": 1},
+    "active_spaces_explanation": {"type": "string", "minLength": 1},
+    "signal_types_explanation": {"type": "string", "minLength": 1},
+    "authority_explanation": {"type": "string", "minLength": 1},
+    "degraded_state_explanation": {"type": "string", "minLength": 1},
+    "what_are_you_doing_response": {"type": "string", "minLength": 1},
+    "alert_preview_text": {"type": "string", "minLength": 1},
+    "plain_language_level": {"type": "string", "enum": ["child_elderly_clear"]},
+    "hidden_behavior_present": {"type": "boolean", "const": false},
+    "spaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["space_id", "display_name", "enabled", "private_space", "signal_types", "authority"],
+        "properties": {
+          "space_id": {"type": "string"},
+          "display_name": {"type": "string"},
+          "enabled": {"type": "boolean"},
+          "private_space": {"type": "boolean"},
+          "signal_types": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "authority": {"type": "string", "enum": ["user", "caregiver", "mdm", "system"]}
+        }
+      }
+    },
+    "degradations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["component", "health_state", "plain_language", "user_action"],
+        "properties": {
+          "component": {"type": "string"},
+          "health_state": {"type": "string", "enum": ["healthy", "degraded", "critical", "unavailable", "unknown"]},
+          "plain_language": {"type": "string"},
+          "user_action": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "audit_ref": {"type": "string"}
+  }
+}

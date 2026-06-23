@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+set -eu
+if command -v gradle >/dev/null 2>&1; then
+  exec gradle "$@"
+fi
+echo "Gradle is not installed and gradle-wrapper.jar is not vendored in this source package." >&2
+echo "Install Gradle 8.7+ or add the official Gradle wrapper JAR before running native Android tests locally." >&2
+exit 127

@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.8",
+  "release": "v0.8 Physical Device Evidence + Release Attestation",
+  "decision": "approved_for_physical_device_evidence_foundation_with_limitations",
+  "approved_for": [
+    "real iOS physical-device evidence format",
+    "real Android physical-device evidence format",
+    "signed device-run evidence bundle foundation",
+    "native audit checkpoint export verification",
+    "provider sandbox transcript redaction proof",
+    "accessibility evidence capture",
+    "CI release attestation bundle",
+    "Android Gradle wrapper inclusion"
+  ],
+  "not_approved_for": [
+    "HIPAA compliance claims",
+    "GDPR/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/MDM control"
+  ],
+  "release_gates": {
+    "python_tests": "required",
+    "swift_tests": "required_when_swift_available",
+    "android_gradle_wrapper": "required",
+    "android_native_tests_in_ci": "release_blocking",
+    "artifact_check": "required"
+  }
+}

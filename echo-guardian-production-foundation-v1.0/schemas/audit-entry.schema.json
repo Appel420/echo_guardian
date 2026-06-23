@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/audit-entry.schema.json",
+  "title": "Echo Guardian Audit Entry v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "audit_entry_id", "sequence_number", "timestamp", "event_type", "severity", "authority_context", "public_context", "previous_entry_hash", "current_entry_hash", "merkle_leaf_hash", "merkle_root", "canonicalization"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "audit_entry_id": { "type": "string" },
+    "sequence_number": { "type": "integer", "minimum": 1 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "event_type": { "type": "string" },
+    "severity": { "type": "string", "enum": ["normal", "unusual", "concerning", "severe", "emergency"] },
+    "authority_context": { "type": "string", "enum": ["user_controlled", "caregiver_delegated", "mdm_managed", "emergency_policy", "system_internal"] },
+    "policy_id": { "type": ["string", "null"] },
+    "policy_version": { "type": ["string", "null"] },
+    "public_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["space_id", "private_space", "signal_types", "plain_language"],
+      "properties": {
+        "space_id": { "type": "string" },
+        "private_space": { "type": "boolean" },
+        "signal_types": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "plain_language": { "type": "string", "minLength": 1 }
+      }
+    },
+    "sensitive_payload_ref": { "type": ["string", "null"] },
+    "sensitive_payload_hash": { "type": ["string", "null"] },
+    "redaction_commitment": { "type": ["string", "null"] },
+    "previous_entry_hash": { "type": "string" },
+    "current_entry_hash": { "type": "string" },
+    "merkle_leaf_hash": { "type": "string" },
+    "merkle_root": { "type": "string" },
+    "checkpoint_id": { "type": ["string", "null"] },
+    "signature": { "type": ["string", "null"] },
+    "canonicalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["encoding", "version"],
+      "properties": {
+        "encoding": { "type": "string", "const": "canonical_json" },
+        "version": { "type": "string", "const": "0.2" }
+      }
+    }
+  }
+}

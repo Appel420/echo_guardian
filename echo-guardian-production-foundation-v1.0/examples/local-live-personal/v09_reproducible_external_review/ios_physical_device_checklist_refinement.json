@@ -1,0 +1,17 @@
+{
+  "checklist_id": "8ac018c3-9d86-4f9e-b061-2b5fd3d1d3f8",
+  "created_at": "2026-06-23T09:53:57Z",
+  "plain_language_summary": "iOS v0.9 release evidence must come from a real device, not a simulator.",
+  "release_blocking": true,
+  "required_evidence_items": [
+    "physical device model and OS version",
+    "app build identifier",
+    "permission/status screen capture or transcript",
+    "private-space blocking evidence",
+    "raw-data blocking evidence",
+    "signed audit checkpoint reference",
+    "accessibility status and confirmation evidence"
+  ],
+  "schema_version": "0.9",
+  "simulator_evidence_allowed": false
+}

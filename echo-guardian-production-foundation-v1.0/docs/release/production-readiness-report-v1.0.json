@@ -1,0 +1,28 @@
+{
+  "blocked_claims": [
+    "HIPAA compliance claims",
+    "GDPR/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/MDM control"
+  ],
+  "decision": "blocked",
+  "evidence": {
+    "android_physical_device_evidence_collected": false,
+    "clinical_legal_claim_blocking_review_passed": false,
+    "external_security_review_completed": false,
+    "ios_physical_device_evidence_collected": false,
+    "no_clinical_deployment_claims": true,
+    "no_emergency_system_claims": true,
+    "no_hipaa_or_gdpr_claims": true,
+    "no_medical_device_claims": true,
+    "no_silent_enterprise_mdm_control": true,
+    "privacy_review_completed": false,
+    "signed_sbom_attestation_verified": true,
+    "trusted_gradle_wrapper_evidence_collected": false
+  },
+  "plain_language_summary": "Echo Guardian v1.0 foundation readiness is blocked until all release-blocking evidence and reviews are complete. Blocked clinical, compliance, medical-device, emergency-system, and silent MDM claims remain blocked.",
+  "release": "Echo Guardian Production Foundation v1.0 Release Candidate",
+  "schema_version": "1.0-rc"
+}
