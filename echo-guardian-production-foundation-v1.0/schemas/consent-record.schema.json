@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/consent-record.schema.json",
+  "title": "Echo Guardian Consent Record v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "consent_id", "created_at", "authority", "scope", "granted", "plain_language_summary", "audit_ref"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "consent_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "authority": { "type": "string", "enum": ["user", "legal_representative", "managed_policy"] },
+    "scope": { "type": "string", "enum": ["monitoring", "space", "signal_type", "contact_notification", "export", "diagnostic"] },
+    "space_id": { "type": ["string", "null"] },
+    "signal_type": { "type": ["string", "null"] },
+    "granted": { "type": "boolean" },
+    "plain_language_summary": { "type": "string" },
+    "audit_ref": { "type": "string" }
+  }
+}

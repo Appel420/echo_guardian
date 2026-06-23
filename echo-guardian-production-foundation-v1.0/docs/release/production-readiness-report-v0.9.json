@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.9",
+  "release": "v0.9 Reproducible Native Build + External Review Prep",
+  "decision": "approved_for_external_review_preparation_with_limitations",
+  "approved_for": [
+    "reproducible native build preparation",
+    "external security review preparation",
+    "privacy review preparation",
+    "signed SBOM attestation workflow",
+    "v1.0 foundation release-candidate gate preparation"
+  ],
+  "still_not_approved_for": [
+    "HIPAA compliance claims",
+    "GDPR/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/MDM control"
+  ],
+  "release_blocking_requirements_for_v1_foundation": [
+    "trusted Gradle wrapper JAR generated and checksum-recorded",
+    "Android local native tests passed through ./gradlew without soft-fail behavior",
+    "iOS physical-device evidence collected on a real device",
+    "signed SBOM attestation verified",
+    "external security review package complete",
+    "privacy review package complete",
+    "clinical/legal claim-blocking review passed"
+  ],
+  "plain_language_summary": "Echo Guardian v0.9 is ready for reproducible native build preparation and external review packaging. It is not approved for compliance, clinical, medical-device, emergency-system, or silent enterprise/MDM claims."
+}

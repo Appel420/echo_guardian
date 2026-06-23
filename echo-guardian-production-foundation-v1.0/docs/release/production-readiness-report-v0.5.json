@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.5",
+  "version": "0.5",
+  "release_name": "Native Runtime Implementation Start",
+  "decision": "native_runtime_start_completed",
+  "approved_for": [
+    "native runtime bridge implementation",
+    "native audit append interface testing",
+    "native policy-status screen implementation",
+    "keychain and keystore proof-of-possession testing",
+    "guarded provider adapter test harness",
+    "accessibility UI skeleton implementation"
+  ],
+  "not_approved_for": [
+    "HIPAA compliance claims",
+    "GDPR or global compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise or MDM control"
+  ],
+  "claims_not_approved": {
+    "hipaa_compliance_claims": false,
+    "gdpr_global_compliance_claims": false,
+    "medical_device_claims": false,
+    "emergency_system_certification_claims": false,
+    "clinical_deployment": false,
+    "silent_enterprise_mdm_control": false
+  },
+  "production_laws": {
+    "no_hidden_behavior": true,
+    "no_cloud_dependency_for_core_loop": true,
+    "no_default_private_space_monitoring": true,
+    "no_raw_sensor_retention_by_default": true,
+    "no_emergency_services_by_default": true,
+    "no_silent_telemetry": true
+  }
+}

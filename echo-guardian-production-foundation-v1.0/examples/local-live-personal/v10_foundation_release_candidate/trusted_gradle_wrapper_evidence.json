@@ -1,0 +1,6 @@
+{
+  "evidence_state": "missing",
+  "plain_language_summary": "Gradle wrapper properties must pin the expected Gradle distribution URL",
+  "release_blocking": true,
+  "schema_version": "1.0-rc"
+}

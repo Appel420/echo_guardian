@@ -1,0 +1,62 @@
+{
+  "approved_for_v1_foundation_readiness": false,
+  "blocked_claims": [
+    "hipaa compliance claims",
+    "gdpr/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/mdm control"
+  ],
+  "created_at": "2026-06-23T09:53:57Z",
+  "criteria": [
+    {
+      "criterion": "python_core_tests_passed",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "ios_native_tests_passed",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "android_native_tests_passed",
+      "passed": false,
+      "required": true
+    },
+    {
+      "criterion": "signed_sbom_attestation_verified",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "external_security_review_package_ready",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "privacy_review_package_ready",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "claim_blocking_review_passed",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "no_silent_mdm_control",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "no_clinical_or_compliance_claims",
+      "passed": true,
+      "required": true
+    }
+  ],
+  "gate_id": "738ebd61-faa3-4606-8462-39b8d23764ef",
+  "plain_language_summary": "Echo Guardian v1.0 foundation readiness gate is blocked until all required evidence passes.",
+  "schema_version": "0.9"
+}

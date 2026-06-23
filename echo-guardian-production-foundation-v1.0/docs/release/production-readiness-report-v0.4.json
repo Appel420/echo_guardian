@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.4",
+  "release": "v0.4 Native Implementation Start",
+  "decision": "approved_for_native_implementation_scaffold",
+  "approved_for": [
+    "iOS Swift package scaffold",
+    "Android Kotlin module scaffold",
+    "Keychain / Keystore proof-of-possession prototype",
+    "native minimized sensor adapter stubs",
+    "plain-language status screen prototype",
+    "guarded delivery provider boundary",
+    "CI job split",
+    "SBOM generation baseline"
+  ],
+  "not_approved_for": [
+    "HIPAA compliance claims",
+    "GDPR/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/MDM control"
+  ],
+  "product_laws": {
+    "no_hidden_behavior": "pass",
+    "no_private_space_monitoring_by_default": "pass",
+    "no_raw_sensor_retention_by_default": "pass",
+    "no_cloud_dependency_for_core_loop": "pass",
+    "no_emergency_services_by_default": "pass",
+    "plain_language_status": "pass"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "audit_errors": [],
+  "audit_refs": [
+    "85d264d1-5af0-4a76-9971-dcd7ded9dcf3",
+    "74e411d2-9c36-418e-bba7-a20abb0af2df",
+    "2a54bc86-fcaa-4589-bf12-fccc06753e5f",
+    "d36df93d-b6ec-41fa-b972-3b74e12bea58",
+    "13c12b3d-96a2-48a3-81aa-1c4bb3b41464",
+    "0b8016a2-5923-4d02-815f-cbd094bd40c0",
+    "0b1379e7-4b74-4fb7-8df5-700269d8c9ba",
+    "dbc97a56-54f4-4bc4-b585-4f3ee93d7458",
+    "fcc501dc-041f-47e3-94b9-7cd2aaf6ef6c"
+  ],
+  "audit_verified": true,
+  "baseline_summary": {
+    "audit_refs": [
+      "13c12b3d-96a2-48a3-81aa-1c4bb3b41464",
+      "0b8016a2-5923-4d02-815f-cbd094bd40c0"
+    ],
+    "baseline_id": "f062256c-a3cf-4b2b-9fd4-ae677c5366c0",
+    "confidence": {
+      "observation_volume": 0.083,
+      "overall": 0.396,
+      "space_coverage": 0.333
+    },
+    "created_at": "2026-06-23T09:01:26Z",
+    "degraded_reason": null,
+    "minimum_observations_for_established": 12,
+    "plain_language_summary": "Echo Guardian is learning normal activity patterns from minimized local safety signals. Confidence is 39%.",
+    "replaced_from_baseline_id": null,
+    "schema_version": "0.2",
+    "sensitive_details_included": false,
+    "spaces": [
+      {
+        "confidence": 0.396,
+        "enabled": true,
+        "last_observed_at": "2026-06-23T09:01:26Z",
+        "observation_count": 1,
+        "observed_signal_types": [
+          "motion"
+        ],
+        "private_space": false,
+        "space_id": "living_room",
+        "summary": "Echo Guardian has learned 1 minimized safety observations; signals: motion; movement has been seen."
+      }
+    ],
+    "status": "learning",
+    "total_observations": 1,
+    "updated_at": "2026-06-23T09:01:26Z"
+  },
+  "classification": {
+    "audit_refs": [
+      "0b1379e7-4b74-4fb7-8df5-700269d8c9ba"
+    ],
+    "baseline_confidence": 0.396,
+    "baseline_id": "f062256c-a3cf-4b2b-9fd4-ae677c5366c0",
+    "baseline_status": "learning",
+    "classification_id": "4f670447-f0e0-4903-ad47-ae26643bf0a6",
+    "confidence": 0.6,
+    "created_at": "2026-06-23T09:01:26Z",
+    "evidence": {
+      "availability_state": "healthy",
+      "baseline_status": "learning",
+      "derived_metadata_keys": [
+        "confidence_scaled",
+        "motion_detected"
+      ],
+      "observation_quality": "good",
+      "permission_state": "granted",
+      "space_known_to_baseline": true
+    },
+    "is_anomaly": false,
+    "observation_id": "6a747d68-abc8-484d-be4a-29d4b991bc64",
+    "plain_language_explanation": "Echo Guardian received a normal minimized safety signal while it is still learning this pattern.",
+    "primary_reason_code": "matches_learning_baseline",
+    "raw_history_retained": false,
+    "recommended_next_action": "Keep learning locally.",
+    "schema_version": "0.2",
+    "sensitive_details_included": false,
+    "severity": "normal",
+    "signal_confidence": 0.92,
+    "signal_type": "motion",
+    "space_id": "living_room"
+  },
+  "completed_at": "2026-06-23T09:01:26Z",
+  "confirmation": null,
+  "created_at": "2026-06-23T09:01:26Z",
+  "cycle_id": "d51bfdd5-3803-4e59-a26d-df2315a56252",
+  "escalation": null,
+  "hidden_behavior_present": false,
+  "local_status": {
+    "active_spaces_explanation": "Active spaces: living room.",
+    "alert_preview_text": "Preview alert: No response after safety confirmation prompt. Location: Home - living_room. Recommended action: Please check on the user. No sensitive details are included. Emergency services are not contacted by default.",
+    "audit_ref": "dbc97a56-54f4-4bc4-b585-4f3ee93d7458",
+    "authority_explanation": "living room: You control this setting.",
+    "created_at": "2026-06-23T09:01:26Z",
+    "degradations": [],
+    "degraded_state_explanation": "Everything needed for this local status view is working.",
+    "hidden_behavior_present": false,
+    "monitoring_enabled": true,
+    "monitoring_explanation": "Echo Guardian monitoring is on for living room.",
+    "plain_language_level": "child_elderly_clear",
+    "schema_version": "0.2",
+    "signal_types_explanation": "living room uses movement.",
+    "spaces": [
+      {
+        "authority": "user",
+        "display_name": "living room",
+        "enabled": true,
+        "private_space": false,
+        "signal_types": [
+          "motion"
+        ],
+        "space_id": "living_room"
+      }
+    ],
+    "status_id": "54063a5f-890b-4022-bc5a-b105e834bb8f",
+    "what_are_you_doing_response": "Here is what I am doing: Echo Guardian monitoring is on for living room. Active spaces: living room. living room uses movement. Everything needed for this local status view is working. Preview alert: No response after safety confirmation prompt. Location: Home - living_room. Recommended action: Please check on the user. No sensitive details are included. Emergency services are not contacted by default."
+  },
+  "no_cloud_dependency": true,
+  "no_private_space_monitoring": true,
+  "observation": {
+    "audit_ref": "d36df93d-b6ec-41fa-b972-3b74e12bea58",
+    "availability_state": "healthy",
+    "created_at": "2026-06-23T09:01:26Z",
+    "derived_metadata": {
+      "confidence_scaled": 92,
+      "motion_detected": true
+    },
+    "observation_id": "6a747d68-abc8-484d-be4a-29d4b991bc64",
+    "permission_state": "granted",
+    "plain_language_summary": "Echo Guardian received a motion safety signal for living_room and stored only derived metadata.",
+    "private_space": false,
+    "quality": "good",
+    "raw_sensor_retained": false,
+    "schema_version": "0.2",
+    "sensor_id": "core_motion.activity",
+    "signal_type": "motion",
+    "space_id": "living_room"
+  },
+  "plain_language_summary": "Echo Guardian completed one local safety check for living_room. Echo Guardian received a normal minimized safety signal while it is still learning this pattern. The audit trail verified correctly.",
+  "policy_authorized": true,
+  "readiness_passed": true,
+  "schema_version": "0.2"
+}

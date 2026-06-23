@@ -1,0 +1,30 @@
+{
+  "active_spaces_explanation": "Active spaces: living room.",
+  "alert_preview_text": "Preview alert: No response after safety confirmation prompt. Location: Home - living room. Recommended action: Please check on the user. No sensitive details are included. Emergency services are not contacted by default.",
+  "audit_ref": "155a3903-3ced-4177-b326-7f74ebfa0e78",
+  "authority_explanation": "living room: You control this setting.",
+  "created_at": "2026-06-23T08:49:20Z",
+  "degradations": [],
+  "degraded_state_explanation": "Everything needed for this local status view is working.",
+  "hidden_behavior_present": false,
+  "monitoring_enabled": true,
+  "monitoring_explanation": "Echo Guardian monitoring is on for living room.",
+  "plain_language_level": "child_elderly_clear",
+  "schema_version": "0.2",
+  "signal_types_explanation": "living room uses movement and nearby device presence.",
+  "spaces": [
+    {
+      "authority": "user",
+      "display_name": "living room",
+      "enabled": true,
+      "private_space": false,
+      "signal_types": [
+        "motion",
+        "device_presence"
+      ],
+      "space_id": "living_room"
+    }
+  ],
+  "status_id": "b309758e-c08f-4fa9-80b4-58b3bc916732",
+  "what_are_you_doing_response": "Here is what I am doing: Echo Guardian monitoring is on for living room. Active spaces: living room. living room uses movement and nearby device presence. Everything needed for this local status view is working. Preview alert: No response after safety confirmation prompt. Location: Home - living room. Recommended action: Please check on the user. No sensitive details are included. Emergency services are not contacted by default."
+}

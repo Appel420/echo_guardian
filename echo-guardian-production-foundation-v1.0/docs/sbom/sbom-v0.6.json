@@ -1,0 +1,17 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "echo-guardian-production-foundation",
+      "version": "0.6"
+    }
+  },
+  "components": [
+    {"type": "library", "name": "echo_guardian_core", "version": "0.6"},
+    {"type": "library", "name": "EchoGuardianKit", "version": "0.6"},
+    {"type": "library", "name": "org.echoguardian:echo-guardian-core", "version": "0.6"}
+  ]
+}

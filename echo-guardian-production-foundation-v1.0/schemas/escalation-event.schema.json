@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/escalation-event.schema.json",
+  "title": "Echo Guardian Escalation Event v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "escalation_id",
+    "created_at",
+    "severity",
+    "reason",
+    "recommended_action",
+    "location_context",
+    "minimum_disclosure_enabled",
+    "sensitive_details_included",
+    "contacts_targeted",
+    "delivery_status",
+    "delivery_attempts",
+    "blocked_reason",
+    "emergency_services_used",
+    "audit_ref"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "escalation_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "severity": { "type": "string", "enum": ["concerning", "severe", "emergency"] },
+    "reason": { "type": "string", "minLength": 1 },
+    "recommended_action": { "type": "string", "minLength": 1 },
+    "location_context": { "type": "string", "minLength": 1 },
+    "minimum_disclosure_enabled": { "type": "boolean", "const": true },
+    "sensitive_details_included": { "type": "boolean", "const": false },
+    "contacts_targeted": { "type": "array", "items": { "type": "string" } },
+    "delivery_status": { "type": "string", "enum": ["blocked", "attempted", "delivered", "failed", "retrying", "cancelled"] },
+    "delivery_attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["attempt_number", "contact_id", "channel", "status", "provider_delivery_id", "error", "created_at", "audit_ref"],
+        "properties": {
+          "attempt_number": { "type": "integer", "minimum": 1 },
+          "contact_id": { "type": "string" },
+          "channel": { "type": "string", "enum": ["sms", "phone_call", "email", "push"] },
+          "status": { "type": "string", "enum": ["blocked", "attempted", "delivered", "failed", "retrying", "cancelled"] },
+          "provider_delivery_id": { "type": ["string", "null"] },
+          "error": { "type": ["string", "null"] },
+          "created_at": { "type": "string", "format": "date-time" },
+          "audit_ref": { "type": "string" }
+        }
+      }
+    },
+    "blocked_reason": { "type": ["string", "null"] },
+    "emergency_services_used": { "type": "boolean", "const": false },
+    "audit_ref": { "type": "string" }
+  }
+}

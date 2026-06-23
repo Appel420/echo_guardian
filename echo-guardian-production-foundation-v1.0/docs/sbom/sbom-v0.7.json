@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.7",
+  "artifact": "echo-guardian-production-foundation-v0.7",
+  "components": [
+    {"name": "echo_guardian_core", "type": "python-package", "version": "0.7.0"},
+    {"name": "blake3", "type": "python-dependency", "version_constraint": ">=1.0.0"},
+    {"name": "jsonschema", "type": "python-dependency", "version_constraint": ">=4.0.0"},
+    {"name": "cryptography", "type": "python-dependency", "version_constraint": ">=42.0.0"},
+    {"name": "EchoGuardianKit", "type": "swift-package", "version": "0.7.0"},
+    {"name": "echo-guardian-core-android", "type": "kotlin-module", "version": "0.7.0"}
+  ]
+}

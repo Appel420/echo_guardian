@@ -1,0 +1,612 @@
+{
+  "schema_version": "0.4",
+  "created_at": "2026-06-23T09:23:16.789791Z",
+  "package": "echo-guardian-production-foundation",
+  "version": "0.4",
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "size": 1296
+    },
+    {
+      "path": "GOVERNANCE.md",
+      "size": 510
+    },
+    {
+      "path": "Makefile",
+      "size": 453
+    },
+    {
+      "path": "PRIVACY.md",
+      "size": 310
+    },
+    {
+      "path": "README.md",
+      "size": 11418
+    },
+    {
+      "path": "RELEASE_NOTES_v0.2.md",
+      "size": 1470
+    },
+    {
+      "path": "RELEASE_NOTES_v0.3.md",
+      "size": 870
+    },
+    {
+      "path": "RELEASE_NOTES_v0.4.md",
+      "size": 798
+    },
+    {
+      "path": "SECURITY.md",
+      "size": 635
+    },
+    {
+      "path": "docs/accessibility/accessibility-screen-flow-prototype-v0.3.md",
+      "size": 920
+    },
+    {
+      "path": "docs/accessibility/accessibility-screen-flow-prototype-v0.4.md",
+      "size": 1096
+    },
+    {
+      "path": "docs/ci/ci-pipeline-v0.3.md",
+      "size": 517
+    },
+    {
+      "path": "docs/delivery/live-contact-delivery-provider-adapter-v0.3.md",
+      "size": 891
+    },
+    {
+      "path": "docs/delivery/v0.4-guarded-provider-implementation.md",
+      "size": 748
+    },
+    {
+      "path": "docs/engineering-notes/anomaly-severity-classifier-v0.2.md",
+      "size": 2456
+    },
+    {
+      "path": "docs/engineering-notes/baseline-learning-engine-v0.2.md",
+      "size": 1233
+    },
+    {
+      "path": "docs/engineering-notes/consent-policy-engine-v0.2.md",
+      "size": 1567
+    },
+    {
+      "path": "docs/engineering-notes/health-monitor-operational-readiness-v0.2.md",
+      "size": 1801
+    },
+    {
+      "path": "docs/engineering-notes/live-guarded-escalation-engine-v0.2.md",
+      "size": 1579
+    },
+    {
+      "path": "docs/engineering-notes/local-audit-engine-v0.2.md",
+      "size": 2187
+    },
+    {
+      "path": "docs/engineering-notes/local-encrypted-storage-export-package-v0.2.md",
+      "size": 1604
+    },
+    {
+      "path": "docs/engineering-notes/local-status-plain-language-interface-v0.2.md",
+      "size": 1289
+    },
+    {
+      "path": "docs/engineering-notes/production-foundation-v0.2.md",
+      "size": 538
+    },
+    {
+      "path": "docs/engineering-notes/production-integration-runner-v0.2.md",
+      "size": 2027
+    },
+    {
+      "path": "docs/engineering-notes/real-sensor-ingestion-layer-v0.2.md",
+      "size": 1580
+    },
+    {
+      "path": "docs/native/v0.4-native-implementation-start.md",
+      "size": 1069
+    },
+    {
+      "path": "docs/platform/android/native-android-sensor-adapter-design-v0.3.md",
+      "size": 1103
+    },
+    {
+      "path": "docs/platform/ios/native-ios-sensor-adapter-design-v0.3.md",
+      "size": 1252
+    },
+    {
+      "path": "docs/platform/native-platform-secure-key-integration-plan-v0.3.md",
+      "size": 1544
+    },
+    {
+      "path": "docs/release/known-limitations-v0.2.md",
+      "size": 991
+    },
+    {
+      "path": "docs/release/next-release-requirements-v0.3.md",
+      "size": 875
+    },
+    {
+      "path": "docs/release/open-risks-v0.2.md",
+      "size": 892
+    },
+    {
+      "path": "docs/release/production-readiness-report-v0.2.json",
+      "size": 6086
+    },
+    {
+      "path": "docs/release/production-readiness-report-v0.3.json",
+      "size": 1148
+    },
+    {
+      "path": "docs/release/production-readiness-report-v0.4.json",
+      "size": 1008
+    },
+    {
+      "path": "docs/release/production-readiness-summary-v0.2.md",
+      "size": 2482
+    },
+    {
+      "path": "docs/sbom/sbom-generation-plan-v0.3.md",
+      "size": 395
+    },
+    {
+      "path": "docs/sbom/sbom-v0.3.json",
+      "size": 510
+    },
+    {
+      "path": "docs/secure-keys/secure-key-integration-plan-v0.3.md",
+      "size": 1540
+    },
+    {
+      "path": "docs/secure-keys/v0.4-keychain-keystore-proof-of-possession.md",
+      "size": 1020
+    },
+    {
+      "path": "docs/security/cryptographic-design-note.md",
+      "size": 479
+    },
+    {
+      "path": "docs/security/dependency-scanning-plan-v0.3.md",
+      "size": 484
+    },
+    {
+      "path": "examples/local-live-personal/anomaly_audit_chain_v0.2.jsonl",
+      "size": 1362
+    },
+    {
+      "path": "examples/local-live-personal/audit_chain.jsonl",
+      "size": 5020
+    },
+    {
+      "path": "examples/local-live-personal/baseline_audit_chain_v0.2.jsonl",
+      "size": 2280
+    },
+    {
+      "path": "examples/local-live-personal/baseline_summary_v0.2.json",
+      "size": 939
+    },
+    {
+      "path": "examples/local-live-personal/checkpoint.json",
+      "size": 706
+    },
+    {
+      "path": "examples/local-live-personal/contacts_v0.2.json",
+      "size": 388
+    },
+    {
+      "path": "examples/local-live-personal/escalation_event_v0.2.json",
+      "size": 966
+    },
+    {
+      "path": "examples/local-live-personal/export_manifest_stdout_v0.2.json",
+      "size": 1602
+    },
+    {
+      "path": "examples/local-live-personal/export_package_v0.2/audit_chain.jsonl",
+      "size": 3962
+    },
+    {
+      "path": "examples/local-live-personal/export_package_v0.2/baseline_summary.json",
+      "size": 939
+    },
+    {
+      "path": "examples/local-live-personal/export_package_v0.2/export_manifest.json",
+      "size": 1329
+    },
+    {
+      "path": "examples/local-live-personal/export_package_v0.2/human_readable_summary.md",
+      "size": 242
+    },
+    {
+      "path": "examples/local-live-personal/export_package_v0.2/local_status_report.json",
+      "size": 1679
+    },
+    {
+      "path": "examples/local-live-personal/export_package_v0.2/policy_snapshot.json",
+      "size": 841
+    },
+    {
+      "path": "examples/local-live-personal/export_package_v0.2/verification_instructions.md",
+      "size": 252
+    },
+    {
+      "path": "examples/local-live-personal/health_audit_chain_v0.2.jsonl",
+      "size": 1103
+    },
+    {
+      "path": "examples/local-live-personal/local_status_audit_chain_v0.2.jsonl",
+      "size": 1019
+    },
+    {
+      "path": "examples/local-live-personal/local_status_report_v0.2.json",
+      "size": 1679
+    },
+    {
+      "path": "examples/local-live-personal/operational_health_report_v0.2.json",
+      "size": 3169
+    },
+    {
+      "path": "examples/local-live-personal/production_cycle_audit_v0.2.jsonl",
+      "size": 10283
+    },
+    {
+      "path": "examples/local-live-personal/production_cycle_result_v0.2.json",
+      "size": 5874
+    },
+    {
+      "path": "examples/local-live-personal/production_cycle_sample_v0.2.json",
+      "size": 362
+    },
+    {
+      "path": "examples/local-live-personal/production_policy_live_guarded_v0.2.json",
+      "size": 838
+    },
+    {
+      "path": "examples/local-live-personal/production_policy_v0.2.json",
+      "size": 841
+    },
+    {
+      "path": "examples/local-live-personal/release_gate_v0.2/readiness_report.json",
+      "size": 6086
+    },
+    {
+      "path": "examples/local-live-personal/release_gate_v0.2/readiness_summary.md",
+      "size": 2482
+    },
+    {
+      "path": "examples/local-live-personal/sensor_audit_chain_v0.2.jsonl",
+      "size": 1232
+    },
+    {
+      "path": "examples/local-live-personal/sensor_observation_v0.2.json",
+      "size": 640
+    },
+    {
+      "path": "examples/local-live-personal/severity_classification_v0.2.json",
+      "size": 1134
+    },
+    {
+      "path": "native/android/build.gradle.kts",
+      "size": 121
+    },
+    {
+      "path": "native/android/echo-guardian-core/build.gradle.kts",
+      "size": 166
+    },
+    {
+      "path": "native/android/echo-guardian-core/src/main/AndroidManifest.xml",
+      "size": 161
+    },
+    {
+      "path": "native/android/echo-guardian-core/src/main/java/org/echoguardian/delivery/GuardedDeliveryProvider.kt",
+      "size": 1160
+    },
+    {
+      "path": "native/android/echo-guardian-core/src/main/java/org/echoguardian/keys/DeviceSigningKeyManager.kt",
+      "size": 2192
+    },
+    {
+      "path": "native/android/echo-guardian-core/src/main/java/org/echoguardian/sensors/MinimizedSensorObservation.kt",
+      "size": 1838
+    },
+    {
+      "path": "native/android/echo-guardian-core/src/main/java/org/echoguardian/status/StatusViewModel.kt",
+      "size": 1012
+    },
+    {
+      "path": "native/android/settings.gradle.kts",
+      "size": 295
+    },
+    {
+      "path": "native/ios/EchoGuardianKit/Package.swift",
+      "size": 381
+    },
+    {
+      "path": "native/ios/EchoGuardianKit/Sources/EchoGuardianKit/Escalation/GuardedDeliveryAdapter.swift",
+      "size": 1406
+    },
+    {
+      "path": "native/ios/EchoGuardianKit/Sources/EchoGuardianKit/Keys/DeviceSigningKey.swift",
+      "size": 3151
+    },
+    {
+      "path": "native/ios/EchoGuardianKit/Sources/EchoGuardianKit/Sensors/MinimizedSensorObservation.swift",
+      "size": 2346
+    },
+    {
+      "path": "native/ios/EchoGuardianKit/Sources/EchoGuardianKit/Status/StatusViewModel.swift",
+      "size": 1240
+    },
+    {
+      "path": "native/ios/EchoGuardianKit/Tests/EchoGuardianKitTests/EchoGuardianKitTests.swift",
+      "size": 821
+    },
+    {
+      "path": "pyproject.toml",
+      "size": 305
+    },
+    {
+      "path": "requirements.txt",
+      "size": 53
+    },
+    {
+      "path": "schemas/audit-entry.schema.json",
+      "size": 2349
+    },
+    {
+      "path": "schemas/baseline-summary.schema.json",
+      "size": 2696
+    },
+    {
+      "path": "schemas/confirmation-state.schema.json",
+      "size": 1713
+    },
+    {
+      "path": "schemas/consent-record.schema.json",
+      "size": 1017
+    },
+    {
+      "path": "schemas/contact.schema.json",
+      "size": 1171
+    },
+    {
+      "path": "schemas/escalation-event.schema.json",
+      "size": 2451
+    },
+    {
+      "path": "schemas/event.schema.json",
+      "size": 1365
+    },
+    {
+      "path": "schemas/export-manifest.schema.json",
+      "size": 2006
+    },
+    {
+      "path": "schemas/health-status.schema.json",
+      "size": 2189
+    },
+    {
+      "path": "schemas/local-status.schema.json",
+      "size": 2719
+    },
+    {
+      "path": "schemas/policy.schema.json",
+      "size": 2869
+    },
+    {
+      "path": "schemas/privacy-rights-request.schema.json",
+      "size": 998
+    },
+    {
+      "path": "schemas/production-cycle-result.schema.json",
+      "size": 1806
+    },
+    {
+      "path": "schemas/retention-policy.schema.json",
+      "size": 954
+    },
+    {
+      "path": "schemas/sensor-observation.schema.json",
+      "size": 1761
+    },
+    {
+      "path": "schemas/severity-classification.schema.json",
+      "size": 2718
+    },
+    {
+      "path": "src/echo_guardian_core/__init__.py",
+      "size": 70
+    },
+    {
+      "path": "src/echo_guardian_core/anomaly.py",
+      "size": 20067
+    },
+    {
+      "path": "src/echo_guardian_core/audit.py",
+      "size": 7560
+    },
+    {
+      "path": "src/echo_guardian_core/baseline.py",
+      "size": 15664
+    },
+    {
+      "path": "src/echo_guardian_core/canonical.py",
+      "size": 1047
+    },
+    {
+      "path": "src/echo_guardian_core/confirmation.py",
+      "size": 2564
+    },
+    {
+      "path": "src/echo_guardian_core/crypto.py",
+      "size": 1168
+    },
+    {
+      "path": "src/echo_guardian_core/delivery/provider_adapter.py",
+      "size": 2766
+    },
+    {
+      "path": "src/echo_guardian_core/escalation.py",
+      "size": 20726
+    },
+    {
+      "path": "src/echo_guardian_core/export.py",
+      "size": 10880
+    },
+    {
+      "path": "src/echo_guardian_core/health.py",
+      "size": 14301
+    },
+    {
+      "path": "src/echo_guardian_core/integration.py",
+      "size": 20488
+    },
+    {
+      "path": "src/echo_guardian_core/platform/native_sensor_adapters.py",
+      "size": 2116
+    },
+    {
+      "path": "src/echo_guardian_core/policy.py",
+      "size": 16340
+    },
+    {
+      "path": "src/echo_guardian_core/security/device_keys.py",
+      "size": 4246
+    },
+    {
+      "path": "src/echo_guardian_core/security/release_artifacts.py",
+      "size": 825
+    },
+    {
+      "path": "src/echo_guardian_core/sensor.py",
+      "size": 10707
+    },
+    {
+      "path": "src/echo_guardian_core/signing.py",
+      "size": 1999
+    },
+    {
+      "path": "src/echo_guardian_core/status.py",
+      "size": 12648
+    },
+    {
+      "path": "src/echo_guardian_core/storage.py",
+      "size": 4933
+    },
+    {
+      "path": "tests/cryptographic/test_audit.py",
+      "size": 3919
+    },
+    {
+      "path": "tests/security/test_v03_native_secure_key_artifacts.py",
+      "size": 2613
+    },
+    {
+      "path": "tests/security/test_v04_native_implementation_start.py",
+      "size": 3950
+    },
+    {
+      "path": "tests/unit/test_anomaly.py",
+      "size": 7505
+    },
+    {
+      "path": "tests/unit/test_baseline.py",
+      "size": 5717
+    },
+    {
+      "path": "tests/unit/test_escalation.py",
+      "size": 7532
+    },
+    {
+      "path": "tests/unit/test_health.py",
+      "size": 6728
+    },
+    {
+      "path": "tests/unit/test_integration.py",
+      "size": 4835
+    },
+    {
+      "path": "tests/unit/test_policy.py",
+      "size": 5197
+    },
+    {
+      "path": "tests/unit/test_release_gate.py",
+      "size": 1358
+    },
+    {
+      "path": "tests/unit/test_sensor.py",
+      "size": 5964
+    },
+    {
+      "path": "tests/unit/test_status.py",
+      "size": 5306
+    },
+    {
+      "path": "tests/unit/test_storage_export.py",
+      "size": 5977
+    },
+    {
+      "path": "tools/check_operational_readiness.py",
+      "size": 2836
+    },
+    {
+      "path": "tools/check_v03_release_artifacts.py",
+      "size": 389
+    },
+    {
+      "path": "tools/check_v04_release_artifacts.py",
+      "size": 1626
+    },
+    {
+      "path": "tools/classify_observation.py",
+      "size": 1931
+    },
+    {
+      "path": "tools/create_checkpoint.py",
+      "size": 1176
+    },
+    {
+      "path": "tools/create_export_package.py",
+      "size": 1511
+    },
+    {
+      "path": "tools/generate_sbom.py",
+      "size": 966
+    },
+    {
+      "path": "tools/ingest_sensor_observation.py",
+      "size": 2044
+    },
+    {
+      "path": "tools/run_production_cycle.py",
+      "size": 2240
+    },
+    {
+      "path": "tools/send_guarded_escalation.py",
+      "size": 2190
+    },
+    {
+      "path": "tools/show_local_status.py",
+      "size": 2709
+    },
+    {
+      "path": "tools/update_baseline.py",
+      "size": 2046
+    },
+    {
+      "path": "tools/validate_policy.py",
+      "size": 675
+    },
+    {
+      "path": "tools/verify_audit.py",
+      "size": 773
+    },
+    {
+      "path": "tools/verify_checkpoint.py",
+      "size": 881
+    }
+  ]
+}

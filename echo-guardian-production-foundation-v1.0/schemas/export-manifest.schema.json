@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/export-manifest.schema.json",
+  "title": "Echo Guardian Export Manifest v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "export_id",
+    "created_at",
+    "created_by_authority",
+    "export_type",
+    "range_start_sequence",
+    "range_end_sequence",
+    "included_files",
+    "redactions_applied",
+    "encrypted",
+    "user_confirmed",
+    "automatic_export",
+    "device_signature",
+    "audit_ref",
+    "request_audit_ref",
+    "recipient"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "export_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "created_by_authority": { "type": "string", "enum": ["user"] },
+    "export_type": { "type": "string", "enum": ["audit_log", "baseline_summary", "full_export"] },
+    "range_start_sequence": { "type": "integer", "minimum": 1 },
+    "range_end_sequence": { "type": "integer", "minimum": 1 },
+    "included_files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "content_type", "hash"],
+        "properties": {
+          "path": { "type": "string" },
+          "content_type": { "type": "string", "enum": ["application/json", "application/jsonl", "text/markdown", "application/octet-stream"] },
+          "hash": { "type": "string", "minLength": 64, "maxLength": 64 }
+        }
+      }
+    },
+    "redactions_applied": { "type": "boolean" },
+    "encrypted": { "type": "boolean" },
+    "user_confirmed": { "type": "boolean", "const": true },
+    "automatic_export": { "type": "boolean", "const": false },
+    "device_signature": { "type": ["string", "null"] },
+    "audit_ref": { "type": "string" },
+    "request_audit_ref": { "type": "string" },
+    "recipient": { "type": ["string", "null"] }
+  }
+}

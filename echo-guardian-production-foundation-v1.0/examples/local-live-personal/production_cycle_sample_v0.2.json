@@ -1,0 +1,15 @@
+{
+  "sensor_id": "core_motion.activity",
+  "signal_type": "motion",
+  "space_id": "living_room",
+  "private_space": false,
+  "captured_at": "2026-06-22T14:15:00Z",
+  "quality": "good",
+  "derived_metadata": {
+    "motion_detected": true,
+    "confidence_scaled": 92
+  },
+  "raw_sample": null,
+  "permission_state": "granted",
+  "availability_state": "healthy"
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/contact.schema.json",
+  "title": "Echo Guardian Contact v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contact_id",
+    "display_name",
+    "channel",
+    "address",
+    "authorized",
+    "test_alert_succeeded",
+    "created_at",
+    "authorization_audit_ref",
+    "test_alert_audit_ref",
+    "minimum_disclosure_only"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "contact_id": { "type": "string", "minLength": 1 },
+    "display_name": { "type": "string", "minLength": 1 },
+    "channel": { "type": "string", "enum": ["sms", "phone_call", "email", "push"] },
+    "address": { "type": "string", "minLength": 1 },
+    "authorized": { "type": "boolean" },
+    "test_alert_succeeded": { "type": "boolean" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "authorization_audit_ref": { "type": ["string", "null"] },
+    "test_alert_audit_ref": { "type": ["string", "null"] },
+    "minimum_disclosure_only": { "type": "boolean", "const": true }
+  }
+}

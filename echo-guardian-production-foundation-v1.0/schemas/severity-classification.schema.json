@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/severity-classification.schema.json",
+  "title": "Echo Guardian Severity Classification v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "classification_id",
+    "created_at",
+    "observation_id",
+    "baseline_id",
+    "baseline_status",
+    "space_id",
+    "signal_type",
+    "is_anomaly",
+    "severity",
+    "primary_reason_code",
+    "confidence",
+    "baseline_confidence",
+    "signal_confidence",
+    "plain_language_explanation",
+    "recommended_next_action",
+    "raw_history_retained",
+    "sensitive_details_included",
+    "audit_refs",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "classification_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "observation_id": { "type": "string" },
+    "baseline_id": { "type": "string" },
+    "baseline_status": { "type": "string", "enum": ["no_baseline", "learning", "established", "degraded", "reset", "replaced"] },
+    "space_id": { "type": "string" },
+    "signal_type": { "type": "string" },
+    "is_anomaly": { "type": "boolean" },
+    "severity": { "type": "string", "enum": ["normal", "unusual", "concerning", "severe", "emergency"] },
+    "primary_reason_code": { "type": "string" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "baseline_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "signal_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "plain_language_explanation": { "type": "string", "minLength": 1 },
+    "recommended_next_action": { "type": "string", "minLength": 1 },
+    "raw_history_retained": { "type": "boolean", "const": false },
+    "sensitive_details_included": { "type": "boolean", "const": false },
+    "audit_refs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true, "minItems": 1 },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "baseline_status",
+        "space_known_to_baseline",
+        "observation_quality",
+        "permission_state",
+        "availability_state",
+        "derived_metadata_keys"
+      ],
+      "properties": {
+        "baseline_status": { "type": "string" },
+        "space_known_to_baseline": { "type": "boolean" },
+        "observation_quality": { "type": "string" },
+        "permission_state": { "type": "string" },
+        "availability_state": { "type": "string" },
+        "derived_metadata_keys": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    }
+  }
+}

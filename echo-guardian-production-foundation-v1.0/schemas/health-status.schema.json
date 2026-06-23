@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/health-status.schema.json",
+  "title": "Echo Guardian Operational Health and Readiness Report v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "health_id",
+    "created_at",
+    "overall_state",
+    "ready_for_active_monitoring",
+    "blocking_reasons",
+    "components",
+    "plain_language_summary",
+    "audit_ref"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "health_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "overall_state": {
+      "type": "string",
+      "enum": ["healthy", "degraded", "critical", "unavailable", "unknown"]
+    },
+    "ready_for_active_monitoring": { "type": "boolean" },
+    "blocking_reasons": { "type": "array", "items": { "type": "string" } },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "component_type",
+          "component_id",
+          "display_name",
+          "state",
+          "required_for_active_monitoring",
+          "plain_language",
+          "user_action",
+          "details",
+          "checked_at"
+        ],
+        "properties": {
+          "component_type": {
+            "type": "string",
+            "enum": ["sensor", "storage", "audit", "policy", "interface", "contact_escalation"]
+          },
+          "component_id": { "type": "string" },
+          "display_name": { "type": "string" },
+          "state": {
+            "type": "string",
+            "enum": ["healthy", "degraded", "critical", "unavailable", "unknown"]
+          },
+          "required_for_active_monitoring": { "type": "boolean" },
+          "plain_language": { "type": "string" },
+          "user_action": { "type": ["string", "null"] },
+          "details": { "type": "object" },
+          "checked_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "plain_language_summary": { "type": "string" },
+    "audit_ref": { "type": "string" }
+  }
+}

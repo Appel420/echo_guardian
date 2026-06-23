@@ -1,0 +1,78 @@
+{
+  "blocked_claims": [
+    "HIPAA compliance claims",
+    "GDPR/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/MDM control"
+  ],
+  "created_at": "2026-06-23T09:59:23Z",
+  "criteria": [
+    {
+      "criterion": "trusted_gradle_wrapper_evidence_collected",
+      "passed": false,
+      "required": true
+    },
+    {
+      "criterion": "ios_physical_device_evidence_collected",
+      "passed": false,
+      "required": true
+    },
+    {
+      "criterion": "android_physical_device_evidence_collected",
+      "passed": false,
+      "required": true
+    },
+    {
+      "criterion": "signed_sbom_attestation_verified",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "external_security_review_completed",
+      "passed": false,
+      "required": true
+    },
+    {
+      "criterion": "privacy_review_completed",
+      "passed": false,
+      "required": true
+    },
+    {
+      "criterion": "clinical_legal_claim_blocking_review_passed",
+      "passed": false,
+      "required": true
+    },
+    {
+      "criterion": "no_hipaa_or_gdpr_claims",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "no_medical_device_claims",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "no_emergency_system_claims",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "no_clinical_deployment_claims",
+      "passed": true,
+      "required": true
+    },
+    {
+      "criterion": "no_silent_enterprise_mdm_control",
+      "passed": true,
+      "required": true
+    }
+  ],
+  "decision": "blocked",
+  "gate_id": "af6948a6-b52f-4c0e-b601-b275460f0b70",
+  "plain_language_summary": "Echo Guardian v1.0 foundation readiness is blocked until all release-blocking evidence and reviews are complete. Blocked clinical, compliance, medical-device, emergency-system, and silent MDM claims remain blocked.",
+  "release_notes_hash": "8ba6527c1641c7b17d547cc4c6acf82daf9659067c2d902593b7044b888e40c5",
+  "schema_version": "1.0-rc"
+}

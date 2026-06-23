@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echo-guardian.local/schemas/privacy-rights-request.schema.json",
+  "title": "Echo Guardian Privacy Rights Request v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "created_at", "request_type", "requested_by", "status", "plain_language_summary", "audit_ref"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "0.2" },
+    "request_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "request_type": { "type": "string", "enum": ["access", "export", "correction", "deletion", "redaction", "retention_review"] },
+    "requested_by": { "type": "string", "enum": ["user", "legal_representative"] },
+    "status": { "type": "string", "enum": ["requested", "in_review", "completed", "denied", "cancelled"] },
+    "plain_language_summary": { "type": "string" },
+    "audit_ref": { "type": "string" }
+  }
+}

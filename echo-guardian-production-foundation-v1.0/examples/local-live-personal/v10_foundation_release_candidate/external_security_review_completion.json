@@ -1,0 +1,24 @@
+{
+  "blocked_claims": [
+    "HIPAA compliance claims",
+    "GDPR/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/MDM control"
+  ],
+  "completed_at": null,
+  "completed_by": null,
+  "created_at": "2026-06-23T09:59:23Z",
+  "findings_count": 0,
+  "package_path": "docs/review/external-security-review-package-v1.0.md",
+  "passed": false,
+  "plain_language_summary": "external_security review is incomplete or has unresolved blockers.",
+  "release_blocking": true,
+  "review_id": "62a8c821-e56b-47fb-8946-5c5166f7367f",
+  "review_type": "external_security",
+  "schema_version": "1.0-rc",
+  "unresolved_blockers": [
+    "external security reviewer completion missing"
+  ]
+}

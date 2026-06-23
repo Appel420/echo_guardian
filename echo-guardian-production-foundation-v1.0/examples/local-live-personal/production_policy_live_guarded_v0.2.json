@@ -1,0 +1,23 @@
+{
+  "authorized_contacts_configured": true,
+  "bathroom_monitoring_enabled": false,
+  "bedroom_monitoring_enabled": false,
+  "cloud_dependency_for_core_loop": false,
+  "deployment_mode": "personal",
+  "diagnostic_upload_enabled": false,
+  "emergency_services_enabled": false,
+  "export_requires_explicit_confirmation": true,
+  "local_audit_logging_enabled": true,
+  "local_baseline_learning_enabled": true,
+  "monitoring_enabled": false,
+  "policy_id": "production-local-v0.2",
+  "policy_version": "0.2",
+  "private_space_monitoring_enabled": false,
+  "raw_sensor_retention": "not_retained",
+  "real_contact_notification_enabled": true,
+  "real_sensor_ingestion_enabled": true,
+  "requires_contact_test_before_live_alerts": true,
+  "schema_version": "0.2",
+  "silent_telemetry_enabled": false,
+  "successful_test_alert_completed": true
+}

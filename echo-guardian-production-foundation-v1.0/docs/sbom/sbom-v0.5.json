@@ -1,0 +1,42 @@
+{
+  "bomFormat": "CycloneDX-compatible-minimal",
+  "components": [
+    {
+      "name": "blake3",
+      "type": "library",
+      "version": ">=1.0.0"
+    },
+    {
+      "name": "jsonschema",
+      "type": "library",
+      "version": ">=4.0.0"
+    },
+    {
+      "name": "cryptography",
+      "type": "library",
+      "version": ">=42.0.0"
+    },
+    {
+      "name": "CryptoKit",
+      "type": "platform",
+      "version": "Apple platform"
+    },
+    {
+      "name": "Keychain",
+      "type": "platform",
+      "version": "Apple platform"
+    },
+    {
+      "name": "Android Keystore",
+      "type": "platform",
+      "version": "Android platform"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "echo-guardian-production-foundation",
+      "version": "0.5"
+    }
+  },
+  "specVersion": "1.5-minimal"
+}

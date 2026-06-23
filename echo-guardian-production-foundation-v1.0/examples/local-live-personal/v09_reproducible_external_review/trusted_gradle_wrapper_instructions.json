@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-06-23T09:53:57Z",
+  "distribution_url": "https://services.gradle.org/distributions/gradle-8.7-bin.zip",
+  "gradle_version": "8.7",
+  "instruction_id": "11217b12-ee5a-4fb5-942e-9a6943c38a44",
+  "plain_language_summary": "Echo Guardian v0.9 requires a trusted Gradle wrapper generated from a pinned Gradle version before local Android reproducibility can be accepted.",
+  "release_blocking": true,
+  "required_commands": [
+    "gradle wrapper --gradle-version 8.7 --distribution-type bin",
+    "./gradlew --version",
+    "./gradlew :echo-guardian-core:testDebugUnitTest"
+  ],
+  "schema_version": "0.9",
+  "verification_steps": [
+    "Verify gradle/wrapper/gradle-wrapper.properties uses the pinned distribution URL.",
+    "Record SHA-256 for gradle-wrapper.jar after generation.",
+    "Run Android native tests locally through ./gradlew without soft-fail behavior.",
+    "Attach Android local test execution evidence to release review."
+  ],
+  "wrapper_jar_policy": "Do not hand-edit or invent gradle-wrapper.jar. Generate it from a trusted local Gradle installation, pin the distribution URL, record checksums, and commit the generated wrapper only after review."
+}

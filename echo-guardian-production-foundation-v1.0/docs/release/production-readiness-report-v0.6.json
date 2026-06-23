@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.6",
+  "release": "v0.6-native-runtime-hardening",
+  "decision": "approved_for_native_runtime_hardening_baseline_with_limitations",
+  "approved_for": [
+    "native permission/status implementation work",
+    "native-to-core minimized observation bridge validation",
+    "native audit append to core audit chain",
+    "native baseline and severity integration testing",
+    "guarded provider delivery-status persistence testing",
+    "explicit local native export package testing",
+    "CI enforcement for artifact and test checks"
+  ],
+  "not_approved_for": [
+    "HIPAA compliance claims",
+    "GDPR/global-compliance claims",
+    "medical-device claims",
+    "emergency-system certification claims",
+    "clinical deployment",
+    "silent enterprise/MDM control"
+  ],
+  "product_law_checklist": {
+    "no_cloud_dependency": "pass",
+    "no_hidden_behavior": "pass",
+    "private_space_blocking": "pass",
+    "raw_data_rejection": "pass",
+    "audit_bypass_prevention": "pass",
+    "guarded_egress": "pass",
+    "explicit_export_only": "pass",
+    "native_test_enforcement": "pass"
+  },
+  "known_limitations": [
+    "Native permission/status code is platform-scaffolded and requires device execution for final platform assurance.",
+    "Provider delivery remains behind guarded adapter boundaries and local persistence only in this package.",
+    "Secure key hardware guarantees remain platform-capability dependent."
+  ],
+  "next_release_requirements": [
+    "execute native tests on physical iOS and Android devices",
+    "persist native signing keys through real Keychain and Keystore paths",
+    "connect native runner to controlled live provider sandbox",
+    "add signed native export manifests",
+    "add platform-specific accessibility UI tests"
+  ]
+}

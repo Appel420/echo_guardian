@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.3",
+  "release": "v0.3-native-platform-secure-key-integration-plan",
+  "status": "planning_and_integration_baseline_complete",
+  "not_certified": true,
+  "claims": {
+    "hipaa_compliant": false,
+    "gdpr_compliant": false,
+    "global_compliant": false,
+    "medical_device_certified": false,
+    "emergency_system_certified": false
+  },
+  "production_laws": {
+    "no_hidden_behavior": "pass",
+    "no_cloud_dependency_for_core_loop": "pass",
+    "no_private_space_by_default": "pass",
+    "no_raw_sensor_retention_by_default": "pass",
+    "no_automatic_export": "pass",
+    "no_emergency_services_by_default": "pass"
+  },
+  "v0_3_artifacts": {
+    "native_ios_sensor_adapter_design": "present",
+    "native_android_sensor_adapter_design": "present",
+    "secure_key_integration_plan": "present",
+    "device_bound_signing_key_prototype": "present",
+    "live_contact_delivery_provider_adapter": "present",
+    "ci_pipeline": "present",
+    "sbom_generation_plan": "present",
+    "dependency_scanning_plan": "present",
+    "expanded_security_tests": "present",
+    "accessibility_screen_flow_prototype": "present"
+  }
+}
