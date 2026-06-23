@@ -37,7 +37,20 @@
     "raw_sensor_retained": { "type": "boolean", "const": false },
     "derived_metadata": {
       "type": "object",
-      "description": "Minimized metadata only. Raw samples, audio buffers, transcripts, frames, and packet captures are forbidden by policy."
+      "additionalProperties": true,
+      "description": "Minimized metadata only. Raw samples, audio buffers, transcripts, frames, and packet captures are forbidden by policy.",
+      "properties": {
+        "confidence_scaled": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "motion_detected": { "type": "boolean" },
+        "presence_detected": { "type": "boolean" },
+        "fall_like_event": { "type": "boolean" },
+        "impact_detected": { "type": "boolean" },
+        "prolonged_inactivity": { "type": "boolean" },
+        "expected_activity_window": { "type": "boolean" },
+        "nonresponse_indicator": { "type": "boolean" },
+        "emergency_indicator": { "type": "boolean" },
+        "critical_safety_signal": { "type": "boolean" }
+      }
     },
     "plain_language_summary": { "type": "string", "minLength": 1 },
     "audit_ref": { "type": "string" }
